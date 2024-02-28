@@ -2,8 +2,12 @@ from azure.core.credentials import AzureKeyCredential
 from azure.search.documents import SearchClient
 from config import get_env_variable
 
-def get_search_client():
-    """Initializes and returns the Azure SearchClient."""
+def get_search_client() -> SearchClient:
+    """
+    Initializes and returns an instance of the Azure SearchClient.
+
+    :return: An instance of Azure SearchClient configured with environment variables.
+    """
     search_service_name = get_env_variable("SEARCH_SERVICE_NAME")
     index_name = get_env_variable("INDEX_NAME")
     api_key = get_env_variable("API_KEY")

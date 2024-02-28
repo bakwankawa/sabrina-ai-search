@@ -6,7 +6,10 @@ document_keys = [
     "aHR0cHM6Ly9zYWJyaW5hbGxtLmJsb2IuY29yZS53aW5kb3dzLm5ldC9hbGxrbm93bGVkZ2VzYWJyaW5hLXR4dC9hZGRlZEtub3dsZWRnZV9wZW5kYWZ0YXJhbktLQnJlZmluYW5jaW5nMi50eHQ1",
     ]
 
-def main():
+def main() -> None:
+    """
+    Main function to execute the document deletion process.
+    """
     document_manager = DocumentManager()
     document_manager.delete_documents(document_keys)
 

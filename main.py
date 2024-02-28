@@ -1,10 +1,20 @@
 from document_manager import DocumentManager
+import yaml
+
+def load_document_keys(yaml_file_path: str) -> list:
+    """
+    Loads document keys from a YAML file.
+
+    :param yaml_file_path: The path to the YAML file containing the document keys.
+    :return: A list of document keys.
+    """
+    with open(yaml_file_path, 'r') as file:
+        data = yaml.safe_load(file)
+        return data.get('keys', [])
 
 # The document keys of the documents you want to delete
-document_keys = [
-    "aHR0cHM6Ly9zYWJyaW5hbGxtLmJsb2IuY29yZS53aW5kb3dzLm5ldC9hbGxrbm93bGVkZ2VzYWJyaW5hLXR4dC9hZGRlZEtub3dsZWRnZV9wZW5kYWZ0YXJhbktLQm1vdG9yMi50eHQ1", 
-    "aHR0cHM6Ly9zYWJyaW5hbGxtLmJsb2IuY29yZS53aW5kb3dzLm5ldC9hbGxrbm93bGVkZ2VzYWJyaW5hLXR4dC9hZGRlZEtub3dsZWRnZV9wZW5kYWZ0YXJhbktLQnJlZmluYW5jaW5nMi50eHQ1",
-    ]
+yaml_file_path = 'document_keys.yaml'
+document_keys = load_document_keys(yaml_file_path)
 
 def main() -> None:
     """
